@@ -14,7 +14,7 @@ Táblák:
 
 | Feladat             | Személy(ek) | Állapot   | Megjegyzés |
 | ------------------- | ----------- | --------- | ---------- |
-| Adtatbázis          | Ricsi       |           |            |
+| Adtatbázis          | Ricsi       | kész      |            |
 | Grafika (ikonok)    | Domi        | ikon kész |            |
 | Profil kezelés      |             |           |            |
 | Új téma létrehozása |             |           | nem színes |
