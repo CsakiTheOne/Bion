@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="hu">
 
@@ -22,22 +25,27 @@
 
 
   <nav class="navbar navbar-default navbar-expand-lg navbar-dark bg-dark sticky-top">
-    <a class="navbar-brand" href="index.html"><img id = "menuLogo" src="../img/bion.png"></a>
+    <a class="navbar-brand" href="index.php"><img id = "menuLogo" src="../img/bion.png"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
       aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="index.html">Főoldal <span class="sr-only">(current)</span></a>
+        <li class="nav-item">
+          <a class="nav-link" href="html/about.html">Az oldalról</a>
+        </li>
+        <?php 
+        if(isset($_POST['id'])) :
+        ?>
+        <li class="nav-item">
+          <a class="nav-link" href="html/about.html">Poszt létrehozása</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="HTML/about.html">Az oldalról</a>
+          <a class="nav-link" href="html/about.html">Keresés</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="HTML/about.html">Poszt létrehozása</a>
-        </li>
+        <?php endif; ?>
+        
 
       </ul>
       <ul class="navbar-nav ml-auto">
