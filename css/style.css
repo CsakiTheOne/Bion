@@ -8,3 +8,11 @@
 {
     color: #6495ED;
 }
+
+#footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+  }
