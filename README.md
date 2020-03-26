@@ -20,3 +20,16 @@ Táblák:
 | Új téma létrehozása |             |           | nem színes |
 | Komment posztolás   |             |           |            |
 | Doksi               | Gyuszi      |           |            |
+
+## Kategóriák
+
+Kémia
+Matek
+Irodalom
+Nyelvtan
+Történelem
+Fizika
+Biológia
+Idegen nyelv
+Földrajz
+Informatika
