@@ -1,10 +1,11 @@
 <?php
-include "../db/connection.php";
-include "../db/execute.php";
+include "../php/db/connection.php";
+include "../php/db/execute.php";
 
 function alert($msg) {
     echo "<script type='text/javascript'>alert('$msg');</script>";
 }
+
 function register()
 {
 $email = $_POST['regemail'];
@@ -12,18 +13,18 @@ $username = $_POST['felhnev'];
 $password = $_POST['regpw'];
 $password2 = $_POST['regpw2'];
 
-if($email == "" || $username == "" || $password == "" || $password2 == "")
+if(!$email == "" || !$username == "" || !$password == "" || !$password2 == "")
 {
     if($password == $password2)
     {
-        $data = callProc("UserGetByEmail","{$email}") -> fetch_array();
+        $data = callProc("UserGetByEmail","'{$email}'");
         if($data!=null)
         {
             alert("A megadott email már létezik!");
             return;
         }
         $data = null;
-        $data = callProc("UserGetByUsername","{$username}") -> fetch_array();
+        $data = callProc("UserGetByUsername","'{$username}'");
         if($data!=null)
         {
             alert("A megadott felhaszálónév már létezik!");
@@ -32,13 +33,13 @@ if($email == "" || $username == "" || $password == "" || $password2 == "")
         $data = null;
         do{
             $uniq = uniqid($email,true);
-            $data = callProc("UserGetByUniqId","{$uniq}") -> fetch_array();
+            $data = callProc("UserGetByUniqId","'{$uniq}'");
         }
         while($data);
 
         $registerPassword = hash("sha256",$password);
 
-        $userId = callProc("UserCreate","{$uniq},{$username},{$registerPassword},{$email}") -> fetch_array();
+        $userId = callProc("UserCreate","'{$uniq}','{$username}','{$registerPassword}','{$email}'");
         if($userId!=null)
         {
             $_SESSION['id'] = $uniq;
