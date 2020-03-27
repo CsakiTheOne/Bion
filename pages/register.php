@@ -23,7 +23,7 @@ session_start();
 
 <body>
 
-<?php include "../nav.php"; showNav("../img/bion.png", "../index.php", "about.php", "themes.php", "register.php", "profile.php", "../php/login/login.php", "../php/logout/logout.php"); ?>
+<?php include "../nav.php"; showNav("../img/bion.png", "../index.php", "about.php", "themes.php", "register.php", "profile.php", "../php/login/login.php", "../php/logout/logout.php", "../php/db/connection.php", "../php/db/execute.php"); ?>
 
     <div class="card bg-light">
         <article class="card-body mx-auto" style="max-width: 400px;">

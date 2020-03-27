@@ -68,9 +68,9 @@ function showNav($icon, $index, $about, $theme, $register, $myprofile, $login, $
 
 if(isset($_POST['login']))
 {
-    include $login;
-    include $connection;
-    include $execute;
+    include strval($connection);
+    include strval($execute);
+    include strval($login);
     echo "<meta http-equiv='refresh' content='0'>";
 }
 
