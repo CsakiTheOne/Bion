@@ -23,44 +23,7 @@ session_start();
 
 <body>
 
-
-    <nav class="navbar navbar-default navbar-expand-lg navbar-dark bg-dark sticky-top">
-        <a class="navbar-brand" href="../index.php"><img id="menuLogo" src="../img/bion.png"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="pages/about.html">Az oldalról</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <div class="dropdown show">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Bejelentkezés
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                            <form class="px-4 py-3">
-                                <div class="form-group">
-                                    <label for="exampleDropdownFormEmail1">Email cím</label>
-                                    <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleDropdownFormPassword1">Jelszó</label>
-                                    <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Jelszó">
-                                </div>
-                                <button type="submit" name="login" class="btn btn-primary">Bejelentkezés</button>
-                            </form>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" id="registerLink" href="register.php">Új vagy még itt? Regisztrálj</a>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <?php include "../nav.php"; showNav("../img/bion.png", "../index.php", "../index.php", "../index.php", "register.php"); ?>
 
     <div class="card bg-light">
         <article class="card-body mx-auto" style="max-width: 400px;">
