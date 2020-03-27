@@ -1,7 +1,7 @@
 <?php function showNav($icon, $index, $about, $theme, $register) { ?>
 
 <nav class="navbar navbar-default navbar-expand-lg navbar-dark bg-dark sticky-top">
-<a class="navbar-brand" href="<?php echo $index ?>"><img id="menuLogo" src="<?php echo $index ?>"></a>
+<a class="navbar-brand" href="<?php echo $index ?>"><img id="menuLogo" src="<?php echo $icon ?>"></a>
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
 </button>
@@ -62,5 +62,12 @@
     <?php endif; ?>
 </div>
 </nav>
-
 <?php } ?>
+
+<?php
+    if(isset($_POST['login']))
+    {
+      include "php/login/login.php";
+      echo "<meta http-equiv='refresh' content='0'>";
+    }
+?>
