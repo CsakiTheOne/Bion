@@ -1,4 +1,4 @@
-<?php function showNav($icon, $index, $about, $theme, $register) { ?>
+<?php function showNav($icon, $index, $about, $theme, $register, $myprofile, $logout) { ?>
 
 <nav class="navbar navbar-default navbar-expand-lg navbar-dark bg-dark sticky-top">
 <a class="navbar-brand" href="<?php echo $index ?>"><img id="menuLogo" src="<?php echo $icon ?>"></a>
@@ -53,8 +53,8 @@
             Profilom
             </button>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Profilom megtekintése</a>
-            <a class="dropdown-item" href="php/logout/logout.php">Kijelentkezés</a>
+            <a class="dropdown-item" href="<?php echo $myprofile ?>">Profilom megtekintése</a>
+            <a class="dropdown-item" href="<?php echo $logout ?>">Kijelentkezés</a>
             </div>
         </div>
         </li>
