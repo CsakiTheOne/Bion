@@ -56,16 +56,16 @@ session_start();
                 Bejelentkezés
               </button>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                <form class="px-4 py-3">
+                <form class="px-4 py-3" method="POST">
                   <div class="form-group">
                     <label for="exampleDropdownFormEmail1">Email cím</label>
-                    <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
+                    <input type="email" class="form-control" id="email" name="password" placeholder="email@example.com" required>
                   </div>
                   <div class="form-group">
                     <label for="exampleDropdownFormPassword1">Jelszó</label>
-                    <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Jelszó">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Jelszó" required>
                   </div>
-                  <button type="submit" class="btn btn-primary">Bejelentkezés</button>
+                  <button type="submit" name="login" id="login" class="btn btn-primary">Bejelentkezés</button>
                 </form>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" id="registerLink" href="register.php">Új vagy még itt? Regisztrálj</a>
@@ -145,6 +145,14 @@ session_start();
     <!-- Copyright -->
 
   </footer>
+
+  <?php
+  if(isset($_POST['login']))
+  {
+  include "../php/login/login.php";
+  login();
+  }
+  ?>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

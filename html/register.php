@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 ?>
 <!doctype html>
 <html lang="hu">
@@ -51,7 +51,7 @@
                                     <label for="exampleDropdownFormPassword1">Jelszó</label>
                                     <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Jelszó">
                                 </div>
-                                <button type="submit" class="btn btn-primary">Bejelentkezés</button>
+                                <button type="submit" name="login" class="btn btn-primary">Bejelentkezés</button>
                             </form>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" id="registerLink" href="register.php">Új vagy még itt? Regisztrálj</a>
@@ -71,28 +71,28 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                     </div>
-                    <input name="felhnev" class="form-control" placeholder="Felhasználónév" type="text">
+                    <input name="felhnev" class="form-control" placeholder="Felhasználónév" type="text" required>
                 </div> <!-- form-group// -->
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
                     </div>
-                    <input name="email" class="form-control" placeholder="Email cím" type="email">
+                    <input name="regemail" class="form-control" placeholder="Email cím" type="email" required>
                 </div> <!-- form-group// -->
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                     </div>
-                    <input class="form-control" placeholder="Jelszó" type="password">
+                    <input class="form-control" placeholder="Jelszó" type="password" required name="regpw">
                 </div> <!-- form-group// -->
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                     </div>
-                    <input class="form-control" placeholder="Jelszó újra" type="password">
+                    <input class="form-control" placeholder="Jelszó újra" type="password" required name="regpw2">
                 </div> <!-- form-group// -->
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block"> Fiók létrehozása </button>
+                    <button type="submit" name="register" class="btn btn-primary btn-block"> Fiók létrehozása </button>
                 </div> <!-- form-group// -->
             </form>
         </article>
@@ -111,6 +111,18 @@
         <!-- Copyright -->
 
     </footer>
+
+    <?php
+    if(isset($_POST['register']))
+    {
+        include "../php/registration/executeRegistration.php";
+        register();
+    }
+    else if(isset($_POST['login']))
+    {
+        
+    }
+    ?>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
