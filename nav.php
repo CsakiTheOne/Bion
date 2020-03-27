@@ -62,5 +62,12 @@
     <?php endif; ?>
 </div>
 </nav>
-
 <?php } ?>
+
+<?php
+    if(isset($_POST['login']))
+    {
+      include "php/login/login.php";
+      echo "<meta http-equiv='refresh' content='0'>";
+    }
+?>

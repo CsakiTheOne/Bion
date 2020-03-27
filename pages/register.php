@@ -76,15 +76,11 @@ session_start();
     </footer>
 
     <?php
-    if(isset($_POST['register']))
-    {
-        include "../php/registration/executeRegistration.php";
-        register();
-    }
-    else if(isset($_POST['login']))
-    {
-        
-    }
+        if(isset($_POST['register']))
+        {
+            include "../php/registration/executeRegistration.php";
+            register();
+        }
     ?>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
