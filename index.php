@@ -145,11 +145,11 @@
   </footer>
 
   <?php
-  if(isset($_POST['login']))
-  {
-    include "php/login/login.php";
-    echo "<meta http-equiv='refresh' content='0'>";
-  }
+    if(isset($_POST['login']))
+    {
+      include "php/login/login.php";
+      echo "<meta http-equiv='refresh' content='0'>";
+    }
   ?>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -14,7 +14,7 @@ include "php/db/execute.php";
         {
             $_SESSION['id'] = $data[0]['uniqId'];
             $_SESSION['username'] = $data[0]['username'];
-            //alert("Sikeres bejelentkezés");
+            alert("Sikeres bejelentkezés");
         }
     }
     else
