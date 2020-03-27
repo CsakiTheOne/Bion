@@ -1,4 +1,6 @@
-<?php function showNav($icon, $index, $about, $theme, $register, $myprofile, $logout) { ?>
+<?php
+function showNav($icon, $index, $about, $theme, $register, $myprofile, $login, $logout, $connection, $execute) {
+?>
 
 <nav class="navbar navbar-default navbar-expand-lg navbar-dark bg-dark sticky-top">
 <a class="navbar-brand" href="<?php echo $index ?>"><img id="menuLogo" src="<?php echo $icon ?>"></a>
@@ -62,12 +64,15 @@
     <?php endif; ?>
 </div>
 </nav>
-<?php } ?>
-
 <?php
-    if(isset($_POST['login']))
-    {
-      include "php/login/login.php";
-      echo "<meta http-equiv='refresh' content='0'>";
-    }
+
+if(isset($_POST['login']))
+{
+    include $login;
+    include $connection;
+    include $execute;
+    echo "<meta http-equiv='refresh' content='0'>";
+}
+
+}
 ?>

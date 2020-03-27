@@ -22,7 +22,7 @@
 
 <body>
 
-  <?php include "nav.php"; showNav("img/bion.png", "index.php", "pages/about.php", "pages/themes.php", "pages/register.php", "pages/profile.php", "pages/register.php", "php/logout/logout.php"); ?>
+  <?php include "nav.php"; showNav("img/bion.png", "index.php", "pages/about.php", "pages/themes.php", "pages/register.php", "pages/profile.php", "php/login/login.php", "php/logout/logout.php", "php/db/connection.php", "php/db/execute.php"); ?>
 
   <div class="jumbotron jumbotron-fluid justify-content-center dzsumbi">
     <div class="container">

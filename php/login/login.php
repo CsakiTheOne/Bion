@@ -1,6 +1,4 @@
 <?php
-include "php/db/connection.php";
-include "php/db/execute.php";
 
     if ($_POST['email'] != "" || $_POST['password'] != "") {
         $email = $_POST['email'];
