@@ -32,7 +32,7 @@ if(!$email == "" || !$username == "" || !$password == "" || !$password2 == "")
         }
         $data = null;
         do{
-            $uniq = uniqid($email,true);
+            $uniq = uniqid("",true);
             $data = callProc("UserGetByUniqId","'{$uniq}'");
         }
         while($data);

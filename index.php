@@ -1,5 +1,5 @@
 <?php
-session_start();
+  session_start();
 ?>
 <!doctype html>
 <html lang="hu">
@@ -22,7 +22,6 @@ session_start();
 
 <body>
 
-
   <nav class="navbar navbar-default navbar-expand-lg navbar-dark bg-dark sticky-top">
     <a class="navbar-brand" href="index.php"><img id="menuLogo" src="img/bion.png"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,8 +42,6 @@ session_start();
             <a class="nav-link" href="about.html">Keresés</a>
           </li>
         <?php endif; ?>
-
-
       </ul>
       <?php
       if (!isset($_SESSION['id'])) :
@@ -59,7 +56,7 @@ session_start();
                 <form class="px-4 py-3" method="POST">
                   <div class="form-group">
                     <label for="exampleDropdownFormEmail1">Email cím</label>
-                    <input type="email" class="form-control" id="email" name="password" placeholder="email@example.com" required>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="email@example.com" required>
                   </div>
                   <div class="form-group">
                     <label for="exampleDropdownFormPassword1">Jelszó</label>
@@ -82,7 +79,7 @@ session_start();
               </button>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item" href="#">Profilom megtekintése</a>
-                <a class="dropdown-item" href="#">Kijelentkezés</a>
+                <a class="dropdown-item" href="php/logout/logout.php">Kijelentkezés</a>
               </div>
             </div>
           </li>
@@ -90,6 +87,7 @@ session_start();
       <?php endif; ?>
     </div>
   </nav>
+
   <div class="jumbotron jumbotron-fluid justify-content-center dzsumbi">
     <div class="container">
       <h1 class="display-4 justify-content-center">Bion</h1>
@@ -149,8 +147,8 @@ session_start();
   <?php
   if(isset($_POST['login']))
   {
-  include "php/login/login.php";
-  login();
+    include "php/login/login.php";
+    echo "<meta http-equiv='refresh' content='0'>";
   }
   ?>
   <!-- Optional JavaScript -->
