@@ -23,7 +23,20 @@ session_start();
 
 <body>
 
-<?php include "../nav.php"; showNav("../img/bion.png", "../index.php", "about.php", "themes.php", "register.php", "profile.php", "../php/login/login.php", "../php/logout/logout.php", "../php/db/connection.php", "../php/db/execute.php"); ?>
+
+    <nav class="navbar navbar-default navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <a class="navbar-brand" href="../index.php"><img id="menuLogo" src="../img/bion.png"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="pages/about.html">Az oldalról</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
     <div class="card bg-light">
         <article class="card-body mx-auto" style="max-width: 400px;">
@@ -76,11 +89,15 @@ session_start();
     </footer>
 
     <?php
-        if(isset($_POST['register']))
-        {
-            include "../php/registration/executeRegistration.php";
-            register();
-        }
+    if(isset($_POST['register']))
+    {
+        include "../php/registration/executeRegistration.php";
+        register();
+    }
+    else if(isset($_POST['login']))
+    {
+        
+    }
     ?>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

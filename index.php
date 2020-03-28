@@ -1,5 +1,5 @@
 <?php
-  session_start();
+session_start();
 ?>
 <!doctype html>
 <html lang="hu">
@@ -15,6 +15,7 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 
 
   <title>Tanulj és Taníts!</title>
@@ -22,7 +23,29 @@
 
 <body>
 
-  <?php include "nav.php"; showNav("img/bion.png", "index.php", "pages/about.php", "pages/themes.php", "pages/register.php", "pages/profile.php", "php/login/login.php", "php/logout/logout.php", "php/db/connection.php", "php/db/execute.php"); ?>
+  <nav class="navbar navbar-default navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <a class="navbar-brand" href="index.php"><img id="menuLogo" src="img/bion.png"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">Az oldalról</a>
+        </li>
+        <?php
+        if (isset($_SESSION['id'])) :
+        ?>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">Poszt létrehozása</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">Keresés</a>
+          </li>
+        <?php endif; ?>
+      </ul>
+    </div>
+  </nav>
 
   <div class="jumbotron jumbotron-fluid justify-content-center dzsumbi">
     <div class="container">
@@ -32,6 +55,40 @@
   </div>
   <div class="container">
 
+
+    <div class="row mb-5">
+      <?php if (!isset($_SESSION['id'])) { ?>
+        <div class="card mx-auto bg-light">
+          <article class="card-body mx-auto">
+            <h4 class="card-title my-3 text-center">Bejelentkezés</h4>
+            <p class="text-center">Bejelentkezés egy létező fiókba</p>
+            <form method="POST">
+              <div class="form-group input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                </div>
+                <input name="email" class="form-control" placeholder="Email cím" type="email" required>
+              </div> <!-- form-group// -->
+              <div class="form-group input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                </div>
+                <input class="form-control" placeholder="Jelszó" type="password" required name="password">
+              </div> <!-- form-group// -->
+              <div class="form-group">
+                <button type="submit" name="login" id="login" class="btn btn-primary">Bejelentkezés</button>
+              </div> <!-- form-group// -->
+            </form>
+            <a class="dropdown-item" id="registerLink" href="pages/register.php">Új vagy még itt? Regisztrálj</a>
+          </article>
+        </div> <!-- card.// -->
+      <?php } else { ?>
+        <ul class="mx-auto list-group list-group-horizontal">
+          <li class="list-group-item"><a href="#">Profilom megtekintése</a></li>
+          <li class="list-group-item"><a href="php/logout/logout.php">Kijelentkezés</a></li>
+        </ul>
+      <?php } ?>
+    </div>
 
     <div class="row">
       <div class="col-6 picture-wborder-right">
@@ -80,7 +137,12 @@
 
   </footer>
 
-
+  <?php
+  if (isset($_POST['login'])) {
+    include "php/login/login.php";
+    echo "<meta http-equiv='refresh' content='0'>";
+  }
+  ?>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
