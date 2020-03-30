@@ -1,5 +1,5 @@
 <?php
-session_start();
+  session_start();
 ?>
 <!doctype html>
 <html lang="hu">
@@ -31,16 +31,16 @@ session_start();
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="about.html">Az oldalról</a>
+          <a class="nav-link" href="pages/about.php">Az oldalról</a>
         </li>
         <?php
         if (isset($_SESSION['id'])) :
         ?>
           <li class="nav-item">
-            <a class="nav-link" href="about.html">Poszt létrehozása</a>
+            <a class="nav-link" href="pages/newTopic.php">Poszt létrehozása</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="about.html">Keresés</a>
+            <a class="nav-link" href="pages/search.php">Keresés</a>
           </li>
         <?php endif; ?>
       </ul>
