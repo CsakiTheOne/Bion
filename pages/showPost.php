@@ -71,25 +71,58 @@ include "../php/db/execute.php";
   </nav>
   
   <form method="post">
-    <button type="submit" name="update" id="update" class="btn btn-primary">Posztok frissítése</button>
+    <button type="submit" name="back" id="back" class="btn btn-primary">Vissza</button>
   </form>
+  <form method="post">
+    <button type="submit" name="update" id="update" class="btn btn-primary">Poszt frissítése</button>
+  </form>
+  <?php
+    $data = callProc("ThemeGetByIdWithCategoryAndCreator", "'{$_SESSION["postId"]}'");
+  ?>
+    <label>Szerző: <?php echo $data[0]['username']?></label><br>
+    <label>Kategória: <?php echo $data[0]['name']?></label><br>
+    <label>Dátum: <?php echo $data[0]['date']?></label><br>
+    <label for="postText">Szöveg:</label><br>
+    <textarea class="form-control textarea" id="postText" name="postText" rows="6" readonly><?php echo $data[0]['text']; ?></textarea>
+    <?php 
+    unset($data);
+  
+    $data = callProc("CommentGetByThemeIdWithCreator", "'{$_SESSION["postId"]}'");
+    foreach ($data as $value) {
+        include "../php/comment/commentComponent.php";
+    }
+
+    ?>
+    <form id="postComment" method="POST">
+          <input type="hidden" name="postId" value="{<?php $_SESSION["postId"]?>}">
+          <div class="form-group">
+            <label for="category">Komment hozzáadása:</label>
+            <textarea class="form-control textarea" id="postText" name="postText" rows="6" required></textarea>
+          </div>
+          <button type="submit" name="comment" id="comment" class="btn btn-primary">Küldés</button>
+    </form>
 
   <?php
-    $data = callProc("ThemeGetAllWithCategoryAndCreator", "");
-    foreach ($data as $value) {
-        include "../php/topic/topicComponent.php";
+    if (isset($_POST['comment']))
+    {
+        $date = date("Y-m-d H:i:s");
+        $data = callProc("CommentCreate", "'{$_SESSION["id"]}','{$_POST["postText"]}','{$date}','{$_SESSION["postId"]}'");
+        if ($data != null) {
+          echo "<label>Komment sikeressen létrehozva!</label>";
+        } else {
+          echo "<label>Komment létrehozása sikertelen!</label>";
+        }
+        echo "<meta http-equiv='refresh' content='0'>";
     }
-    unset($value);
+
+    if (isset($_POST['back']))
+    {
+      echo "<script> window.location.assign('allTopic.php'); </script>";
+    }
 
     if (isset($_POST['update']))
     {
         echo "<meta http-equiv='refresh' content='0'>";
-    }
-
-    if (isset($_POST['show']))
-    {
-        $_SESSION["postId"] = $_POST["postId"];
-        echo "<script> window.location.assign('showPost.php'); </script>";
     }
   ?>
   

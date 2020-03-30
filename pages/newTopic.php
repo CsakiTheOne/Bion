@@ -76,7 +76,7 @@ include "../php/db/execute.php";
         <form id="postForm" method="POST">
           <div class="form-group">
             <label for="category">Válaszzon kategóriát:</label>
-            <select id="category" name="category" required>
+            <select class="form-control" id="category" name="category" required>
               <?php
               $data = callProc("CategoriesGetAll", "");
               foreach ($data as $value) {
@@ -87,14 +87,14 @@ include "../php/db/execute.php";
             </select>
           </div>
           <label for="postText">Szöveg:</label>
-          <textarea class="form-control textarea" id="postText" name="postText" rows="6" required></textarea>
-          <button type="submit" name="submit" id="submit" class="btn btn-primary">Poszt létrehozása</button>
+          <textarea class="form-control textarea" id="postText" name="postText" rows="6" required></textarea><br>
+          <button type="submit" name="submit" id="submit" class="form-control btn btn-primary">Poszt létrehozása</button>
         </form>
         <?php
         if (isset($_POST['submit'])) {
           $date = date("Y-m-d H:i:s");
           $data = callProc("ThemeCreate", "'{$_POST['category']}','{$_SESSION['id']}','{$date}','{$_POST['postText']}'");
-          if ($date != null) {
+          if ($data != null) {
             echo "<label>Poszt sikeressen létrehozva!</label>";
           } else {
             echo "<label>Poszt létrehozása sikertelen!</label>";
