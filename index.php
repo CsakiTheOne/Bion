@@ -23,7 +23,7 @@
 
 <body>
 
-  <nav class="navbar navbar-default navbar-expand-lg navbar-dark bg-dark sticky-top">
+<nav class="navbar navbar-default navbar-expand-lg navbar-dark bg-dark sticky-top">
     <a class="navbar-brand" href="index.php"><img id="menuLogo" src="img/bion.png"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -44,6 +44,48 @@
           </li>
         <?php endif; ?>
       </ul>
+      <?php
+      if (!isset($_SESSION['id'])) :
+      ?>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <div class="dropdown show">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Bejelentkezés
+              </button>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                <form class="px-4 py-3" method="POST">
+                  <div class="form-group">
+                    <label for="exampleDropdownFormEmail1">Email cím</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="email@example.com" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleDropdownFormPassword1">Jelszó</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Jelszó" required>
+                  </div>
+                  <button type="submit" name="login" id="login" class="btn btn-primary">Bejelentkezés</button>
+                </form>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" id="registerLink" href="pages/register.php">Új vagy még itt? Regisztrálj</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      <?php else : ?>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <div class="btn-group">
+              <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Profilom
+              </button>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Profilom megtekintése</a>
+                <a class="dropdown-item" href="php/logout/logout.php">Kijelentkezés</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      <?php endif; ?>
     </div>
   </nav>
 
@@ -54,41 +96,6 @@
     </div>
   </div>
   <div class="container">
-
-
-    <div class="row mb-5">
-      <?php if (!isset($_SESSION['id'])) { ?>
-        <div class="card mx-auto bg-light">
-          <article class="card-body mx-auto">
-            <h4 class="card-title my-3 text-center">Bejelentkezés</h4>
-            <p class="text-center">Bejelentkezés egy létező fiókba</p>
-            <form method="POST">
-              <div class="form-group input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
-                </div>
-                <input name="email" class="form-control" placeholder="Email cím" type="email" required>
-              </div> <!-- form-group// -->
-              <div class="form-group input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-                </div>
-                <input class="form-control" placeholder="Jelszó" type="password" required name="password">
-              </div> <!-- form-group// -->
-              <div class="form-group">
-                <button type="submit" name="login" id="login" class="btn btn-primary">Bejelentkezés</button>
-              </div> <!-- form-group// -->
-            </form>
-            <a class="dropdown-item" id="registerLink" href="pages/register.php">Új vagy még itt? Regisztrálj</a>
-          </article>
-        </div> <!-- card.// -->
-      <?php } else { ?>
-        <ul class="mx-auto list-group list-group-horizontal">
-          <li class="list-group-item"><a href="#">Profilom megtekintése</a></li>
-          <li class="list-group-item"><a href="php/logout/logout.php">Kijelentkezés</a></li>
-        </ul>
-      <?php } ?>
-    </div>
 
     <div class="row">
       <div class="col-6 picture-wborder-right">
