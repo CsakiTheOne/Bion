@@ -1,6 +1,6 @@
 .topicContainer
 {
-    display: flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   padding: 70px;
@@ -25,8 +25,4 @@ body{
 label{
     font-family: 'Comfortaa', cursive;
     font-size: 30px;
-}
-form
-{
-    min-width: 0.5rem !important;
 }

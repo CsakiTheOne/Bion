@@ -40,10 +40,10 @@ include "../php/db/execute.php";
         if (isset($_SESSION['id'])) :
         ?>
           <li class="nav-item">
-            <a class="nav-link active" href="newTopic.php">Poszt létrehozása</a>
+            <a class="nav-link" href="newTopic.php">Poszt létrehozása</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="allTopic.php">Posztok megtekintése</a>
+            <a class="nav-link active" href="allTopic.php">Posztok megtekintése</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="search.php">Keresés</a>
@@ -69,41 +69,26 @@ include "../php/db/execute.php";
       <?php endif; ?>
     </div>
   </nav>
-
-  <div class="container-fluid my-5 topicContainer">
-    <div class="row">
-      <div class="col-12">
-        <form id="postForm" method="POST">
-          <div class="form-group">
-            <label for="category">Válaszzon kategóriát:</label>
-            <select id="category" name="category" required>
-              <?php
-              $data = callProc("CategoriesGetAll", "");
-              foreach ($data as $value) {
-                echo "<option value='{$value['id']}'>{$value['name']}</option>";
-              }
-              unset($value);
-              ?>
-            </select>
-          </div>
-          <label for="postText">Szöveg:</label>
-          <textarea class="form-control textarea" id="postText" name="postText" rows="6" required></textarea>
-          <button type="submit" name="submit" id="submit" class="btn btn-primary">Poszt létrehozása</button>
-        </form>
-        <?php
-        if (isset($_POST['submit'])) {
-          $date = date("Y-m-d H:i:s");
-          $data = callProc("ThemeCreate", "'{$_POST['category']}','{$_SESSION['id']}','{$date}','{$_POST['postText']}'");
-          if ($date != null) {
-            echo "<label>Poszt sikeressen létrehozva!</label>";
-          } else {
-            echo "<label>Poszt létrehozása sikertelen!</label>";
-          }
+  
+  <button type="submit" name="update" id="update" class="btn btn-primary">Posztok frissítése</button>
+  
+  <?php
+    function updatePosts()
+    {
+        $data = callProc("ThemeGetAllWithCategoryAndCreator", "");
+        foreach ($data as $value) {
+            include "../php/topic/topicComponent.php";
         }
-        ?>
-      </div>
-    </div>
-  </div>
+        unset($value);
+    }
+    updatePosts();
+
+    if (isset($_POST['update']))
+    {
+        updatePosts();
+    }
+  ?>
+  
 
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

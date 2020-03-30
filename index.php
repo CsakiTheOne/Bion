@@ -40,6 +40,9 @@
             <a class="nav-link" href="pages/newTopic.php">Poszt létrehozása</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="pages/allTopic.php">Posztok megtekintése</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="pages/search.php">Keresés</a>
           </li>
         <?php endif; ?>
