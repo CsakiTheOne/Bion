@@ -32,7 +32,7 @@ session_start();
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="pages/about.html">Az oldalról</a>
+                    <a class="nav-link" href="pages/about.php">Az oldalról</a>
                 </li>
             </ul>
         </div>
