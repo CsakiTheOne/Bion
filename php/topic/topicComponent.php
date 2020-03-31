@@ -3,8 +3,9 @@
       <div class="col-12">
         <!-- Post -->
           <form method="post">
-          <h2><?php echo $value['username']?></h2>
+          <h2><?php echo $value['header']?></h2>
           <label style="font-size:1em;"><i class="far fa-calendar-alt"></i> <?php echo $value['date']?></label>
+          <label style="font-size:1em;" class="mx-5"><i class="far fa-user"></i> <?php echo $value['username']?></label>
           <label style="font-size:1em;" class="mx-5"><i class="far fa-folder"> </i> <?php echo $value['name']?></label>
           <?php
           $data = callProc("CommentGetByThemeId", "'{$value['id']}'");

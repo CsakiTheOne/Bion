@@ -88,6 +88,8 @@ include "../php/db/execute.php";
               ?>
             </select>
           </div>
+          <label for="postText">Cím:</label>
+          <textarea class="form-control textarea" id="postHeader" name="postHeader" maxlength="100" rows="3" required></textarea><br>
           <label for="postText">Szöveg:</label>
           <textarea class="form-control textarea" id="postText" name="postText" rows="6" required></textarea><br>
           <button type="submit" name="submit" id="submit" class="form-control btn btn-primary">Poszt létrehozása</button>
@@ -95,7 +97,7 @@ include "../php/db/execute.php";
         <?php
         if (isset($_POST['submit'])) {
           $date = date("Y-m-d H:i:s");
-          $data = callProc("ThemeCreate", "'{$_POST['category']}','{$_SESSION['id']}','{$date}','{$_POST['postText']}'");
+          $data = callProc("ThemeCreate", "'{$_POST['category']}','{$_SESSION['id']}','{$date}','{$_POST['postText']}','{$_POST['postHeader']}'");
           if ($data != null) {
             echo "<label>Poszt sikeressen létrehozva!</label>";
           } else {

@@ -24,6 +24,7 @@ include "../php/db/execute.php";
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/topic.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 </head>
 
@@ -83,6 +84,7 @@ include "../php/db/execute.php";
   $data = callProc("ThemeGetByIdWithCategoryAndCreator", "'{$_SESSION["postId"]}'");
   ?>
   <div class="w-50 mx-auto">
+    <h1><?php echo $data[0]['header'] ?></h1>
     <p class="lead"><i class="fa fa-user"></i> szerző <?php echo $data[0]['username'] ?></p>
     <hr>
     <p><i class="fa fa-calendar"></i> <?php echo $data[0]['date'] ?> </p>
@@ -98,7 +100,7 @@ include "../php/db/execute.php";
         <div class="form-group">
           <textarea class="form-control" style="resize:none;overflow:hidden;" name="postText" id="comment" rows="3" oninput="resize();"></textarea>
         </div>
-        <button type="submit" name="comment" class="btn btn-primary"><i class="fa fa-reply"></i> Küldés</button>
+        <button type="submit" name="comment" id="commentSend" disabled required class="btn btn-primary"><i class="fa fa-reply"></i> Küldés</button>
       </form>
       <hr>
     </div>
@@ -139,6 +141,19 @@ include "../php/db/execute.php";
         document.getElementById('comment').style.height = 'auto';
         document.getElementById('comment').style.height = document.getElementById('comment').scrollHeight+'px';
     }
+    function button(){
+      console.log($("#comment").val().length);
+      if($("#comment").val().length>0)
+      {
+        document.getElementById('commentSend').disabled = false;
+      }
+      else
+      {
+        document.getElementById('commentSend').disabled=true;
+      }
+    }
+    document.getElementById('comment').addEventListener("input",button);
+
   </script>
 
   <?php include "../php/footer/footerComponent.php"; ?>
