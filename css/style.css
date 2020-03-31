@@ -114,3 +114,42 @@
       resize: none;
         overflow: hidden;
   }
+
+.navbar-default
+{
+    background: #00374E !important;
+}
+
+.footer-copyright
+{
+  background: #00374E !important;
+}
+
+footer {
+  bottom: 0;
+  width: 100%;
+  background: #00374E !important;
+}
+
+.jumbotron
+{
+  background: rgb(18, 79, 105) !important;
+}
+
+.card
+{
+  background: rgb(18, 79, 105) !important;
+}
+
+body{
+    min-height: 100vh;
+    background-image: url("/img/bg.svg");
+    background-attachment: fixed;
+    background-size: cover;
+    color:white;
+}
+
+label{
+    font-family: 'Comfortaa', cursive;
+    font-size: 30px;
+}

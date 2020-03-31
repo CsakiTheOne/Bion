@@ -5,9 +5,13 @@
 <html lang="hu">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--Icon-->
+    <link rel="icon" href="../favicon.ico" type="image/ico">
     <!--Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Comfortaa|Lobster&display=swap" rel="stylesheet">
@@ -16,8 +20,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
-
-
     <title>Tanulj és Taníts!</title>
 </head>
 
@@ -38,7 +40,7 @@
         </div>
     </nav>
 
-    <div class="card bg-light">
+    <div class="card">
         <article class="card-body mx-auto" style="max-width: 400px;">
             <h4 class="card-title mt-3 text-center">Fiók létrehozása</h4>
             <p class="text-center">Regisztrálj egy ingyenes fiókot</p>
@@ -77,17 +79,6 @@
     </div>
     <!--container end.//-->
 
-
-
-    <footer class="page-footer font-small blue" id="footer">
-
-        <!-- Copyright -->
-        <div class="footer-copyright text-center py-3 footer_text bg-dark text-white">©Pavlényi Gyula Márk 2020
-        </div>
-        <!-- Copyright -->
-
-    </footer>
-
     <?php
     if(isset($_POST['register']))
     {
@@ -99,6 +90,7 @@
         
     }
     ?>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

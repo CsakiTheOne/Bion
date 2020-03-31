@@ -8,6 +8,8 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!--Icon-->
+  <link rel="icon" href="./favicon.ico" type="image/ico">
   <!--Fonts-->
   <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Comfortaa|Lobster&display=swap" rel="stylesheet">
@@ -16,7 +18,6 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
-
 
   <title>Tanulj és Taníts!</title>
 </head>
@@ -92,7 +93,7 @@
     </div>
   </nav>
 
-  <div class="jumbotron jumbotron-fluid justify-content-center dzsumbi">
+  <div class="jumbotron jumbotron-fluid justify-content-center">
     <div class="container">
       <h1 class="display-4 justify-content-center">Bion</h1>
       <p class="lead">Tanulj és taníts!</p>
@@ -136,16 +137,7 @@
     </div>
   </div>
 
-
-
-  <footer class="page-footer font-small blue">
-
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-3 footer_text bg-dark text-white">©Pavlényi Gyula Márk 2020
-    </div>
-    <!-- Copyright -->
-
-  </footer>
+  <?php include "php/footer/footerComponent.php"; ?>
 
   <?php
   if (isset($_POST['login'])) {
