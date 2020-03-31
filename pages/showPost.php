@@ -9,7 +9,7 @@ include "../php/db/execute.php";
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Poszt létrehozása</title>
+  <title>Poszt</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -18,6 +18,7 @@ include "../php/db/execute.php";
   <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Comfortaa|Lobster&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Baloo+Thambi|Nova+Flat&display=swap" rel="stylesheet">
   <!-- Bootstrap CSS -->
+  <script src="https://kit.fontawesome.com/a866d5ef98.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/topic.css">
@@ -69,63 +70,75 @@ include "../php/db/execute.php";
       <?php endif; ?>
     </div>
   </nav>
-  
+
   <form method="post">
-    <button type="submit" name="back" id="back" class="btn btn-primary">Vissza</button>
+    <button type="submit" name="back" id="back" class="btn btn-primary ml-3 mt-3">Vissza</button>
   </form>
   <form method="post">
-    <button type="submit" name="update" id="update" class="btn btn-primary">Poszt frissítése</button>
+    <button type="submit" id="refresh" title="Go to top"><i class="fas fa-sync-alt"></i></button>
   </form>
   <?php
-    $data = callProc("ThemeGetByIdWithCategoryAndCreator", "'{$_SESSION["postId"]}'");
+  $data = callProc("ThemeGetByIdWithCategoryAndCreator", "'{$_SESSION["postId"]}'");
   ?>
-    <label>Szerző: <?php echo $data[0]['username']?></label><br>
-    <label>Kategória: <?php echo $data[0]['name']?></label><br>
-    <label>Dátum: <?php echo $data[0]['date']?></label><br>
-    <label for="postText">Szöveg:</label><br>
+  <div class="w-50 mx-auto">
+    <p class="lead"><i class="fa fa-user"></i> szerző <?php echo $data[0]['username'] ?></p>
+    <hr>
+    <p><i class="fa fa-calendar"></i> <?php echo $data[0]['date'] ?> </p>
+    <p><i class="fa fa-tags"></i> Tags: <span class="badge badge-info"><?php echo $data[0]['name'] ?></span></p>
     <textarea class="form-control textarea" id="postText" name="postText" rows="6" readonly><?php echo $data[0]['text']; ?></textarea>
-    <?php 
-    unset($data);
-  
-    $data = callProc("CommentGetByThemeIdWithCreator", "'{$_SESSION["postId"]}'");
-    foreach ($data as $value) {
-        include "../php/comment/commentComponent.php";
-    }
+  </div>
+  <form id="postComment" method="POST">
+    <input type="hidden" name="postId" value="{<?php $_SESSION["postId"] ?>}">
+    <div class="well w-50 mx-auto">
+      <hr>
+      <h4><i class="fa fa-paper-plane-o"></i> Szólj hozzá:</h4>
+      <form role="form">
+        <div class="form-group">
+          <textarea class="form-control" style="resize:none;overflow:hidden;" name="postText" id="comment" rows="3" oninput="resize();"></textarea>
+        </div>
+        <button type="submit" name="comment" class="btn btn-primary"><i class="fa fa-reply"></i> Küldés</button>
+      </form>
+      <hr>
+    </div>
+  </form>
+  <?php
+  unset($data);
 
-    ?>
-    <form id="postComment" method="POST">
-          <input type="hidden" name="postId" value="{<?php $_SESSION["postId"]?>}">
-          <div class="form-group">
-            <label for="category">Komment hozzáadása:</label>
-            <textarea class="form-control textarea" id="postText" name="postText" rows="6" required></textarea>
-          </div>
-          <button type="submit" name="comment" id="comment" class="btn btn-primary">Küldés</button>
-    </form>
+  $data = callProc("CommentGetByThemeIdWithCreator", "'{$_SESSION["postId"]}'");
+  foreach ($data as $value) {
+    include "../php/comment/commentComponent.php";
+  }
+
+  ?>
 
   <?php
-    if (isset($_POST['comment']))
-    {
-        $date = date("Y-m-d H:i:s");
-        $data = callProc("CommentCreate", "'{$_SESSION["id"]}','{$_POST["postText"]}','{$date}','{$_SESSION["postId"]}'");
-        if ($data != null) {
-          echo "<label>Komment sikeressen létrehozva!</label>";
-        } else {
-          echo "<label>Komment létrehozása sikertelen!</label>";
-        }
-        echo "<meta http-equiv='refresh' content='0'>";
+  if (isset($_POST['comment'])) {
+    $date = date("Y-m-d H:i:s");
+    $data = callProc("CommentCreate", "'{$_SESSION["id"]}','{$_POST["postText"]}','{$date}','{$_SESSION["postId"]}'");
+    if ($data != null) {
+      echo "<label>Komment sikeressen létrehozva!</label>";
+    } else {
+      echo "<label>Komment létrehozása sikertelen!</label>";
     }
+    echo "<meta http-equiv='refresh' content='0'>";
+  }
 
-    if (isset($_POST['back']))
-    {
-      echo "<script> window.location.assign('allTopic.php'); </script>";
-    }
+  if (isset($_POST['back'])) {
+    echo "<script> window.location.assign('allTopic.php'); </script>";
+  }
 
-    if (isset($_POST['update']))
-    {
-        echo "<meta http-equiv='refresh' content='0'>";
-    }
+  if (isset($_POST['update'])) {
+    echo "<meta http-equiv='refresh' content='0'>";
+  }
   ?>
-  
+
+  <script>
+    function resize () {
+        document.getElementById('comment').style.height = 'auto';
+        document.getElementById('comment').style.height = document.getElementById('comment').scrollHeight+'px';
+    }
+  </script>
+
 
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

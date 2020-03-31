@@ -1,6 +1,6 @@
 <?php
     $user = "root";
-    $pw = "rootroot";
+    $pw = "";
     $ip = "localhost";
     $db = "bion";
 
