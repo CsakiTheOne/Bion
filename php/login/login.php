@@ -3,8 +3,8 @@ include "php/db/connection.php";
 include "php/db/execute.php";
 
     if ($_POST['email'] != "" || $_POST['password'] != "") {
-        $email = $_POST['email'];
-        $password = hash("sha256",$_POST['password']);
+        $email = trim($_POST['email']);
+        $password = hash("sha256",trim($_POST['password']));
         $data = callProc("UserGetByCredentials","'{$email}','{$password}'");
         if($data==null)
         {
@@ -14,6 +14,7 @@ include "php/db/execute.php";
         {
             $_SESSION['id'] = $data[0]['uniqId'];
             $_SESSION['username'] = $data[0]['username'];
+            $_SESSION['email'] = $email;
             alert("Sikeres bejelentkezés");
         }
     }

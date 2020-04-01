@@ -5,6 +5,7 @@ include "../php/db/execute.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -59,7 +60,7 @@ include "../php/db/execute.php";
                 Profilom
               </button>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Profilom megtekintése</a>
+                <a class="dropdown-item" href="profile.php">Profilom megtekintése</a>
                 <a class="dropdown-item" href="../php/logout/logout.php">Kijelentkezés</a>
               </div>
             </div>
@@ -68,7 +69,28 @@ include "../php/db/execute.php";
       <?php endif; ?>
     </div>
   </nav>
-  
+
+  <div class="jumbotron jumbotron-fluid justify-content-center">
+    <div class="container" id="aboutLeadContainer">
+      <h1 class="display-4 text-center">Az oldalról</h1>
+      <hr>
+      <h2 class="lead text-center">Tudj meg többet az oldal kezdeteiről és alapötletéről!</h2>
+    </div>
+    <br>
+    <div class="container" id="aboutHistoryContainer">
+      <h1 class="display-4 text-center">Az oldal története</h1>
+      <hr>
+      <h2 class="lead text-center">Az alapötlet az önkéntes segítségnyújtás. Sokunknak szüksége van egyes tantárgyakban egy másfajta magyarázatra, egy új megközelítési módra, hogy megértsük a
+        probléma mivoltát. Ebben segít a Bion. A felhasználók egymást segítik kommentekkel az előrehaladásban és a fejlődésben!</h2>
+    </div>
+    <br>
+    <div class="container" id="aboutJoinContainer">
+      <h1 class="display-4 text-center">Csatlakozz</h1>
+      <hr>
+      <h2 class="lead text-center">Csatlakozz a fórumhoz és segíts másokon, illetve tedd fel kérdésed! Legyél egy összetartó közösség része!</h2>
+    </div>
+  </div>
+
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>

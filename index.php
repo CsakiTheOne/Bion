@@ -1,5 +1,5 @@
 <?php
-  session_start();
+session_start();
 ?>
 <!doctype html>
 <html lang="hu">
@@ -24,7 +24,7 @@
 
 <body>
 
-<nav class="navbar navbar-default navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <nav class="navbar navbar-default navbar-expand-lg navbar-dark bg-dark sticky-top">
     <a class="navbar-brand" href="index.php"><img id="menuLogo" src="img/bion.png"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -83,7 +83,7 @@
                 Profilom
               </button>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Profilom megtekintése</a>
+                <a class="dropdown-item" href="pages/profile.php">Profilom megtekintése</a>
                 <a class="dropdown-item" href="php/logout/logout.php">Kijelentkezés</a>
               </div>
             </div>
@@ -95,8 +95,8 @@
 
   <div class="jumbotron jumbotron-fluid justify-content-center">
     <div class="container">
-      <h1 class="display-4 justify-content-center">Bion</h1>
-      <p class="lead">Tanulj és taníts!</p>
+      <h1 class="display-4 text-center">Bion</h1>
+      <p class="lead text-center">Tanulj és taníts!</p>
     </div>
   </div>
   <div class="container">
@@ -105,7 +105,7 @@
       <div class="col-6 picture-wborder-right">
         <img src="img/szila.jpg" alt="" class="img-fluid float-left" id="szila">
       </div>
-      <div class="col-6">
+      <div class="col-6 mt-5">
         <h2 class="text_1">Ha félsz kérdezni a tanáraidtól, vagy nem vagy megelégedve a magyarázattal,
           nem érted az anyagot, akkor megtaláltad a helyed!</h2>
       </div>
@@ -117,21 +117,12 @@
 
     </div>
     <div class="row top-buffer">
-      <div class="col-6">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tincidunt aliquet ex nec posuere. Sed lorem felis,
-        auctor ornare hendrerit id, posuere dapibus leo. Duis sit amet metus at tellus pulvinar porta. In hac habitasse
-        platea dictumst. Nullam aliquam nibh leo, ac placerat quam sodales ac. Nulla facilisi. Vestibulum vulputate dui
-        sed mauris luctus, iaculis laoreet arcu maximus. Aliquam vestibulum ipsum at nisl vulputate facilisis. Praesent
-        lacus lectus, tincidunt at feugiat vel, ultrices sit amet felis. Morbi vel diam venenatis, commodo mauris nec,
-        mattis felis. In dictum ligula vitae fringilla tempus. Aenean et condimentum mauris. Phasellus neque nibh,
-        tincidunt sit amet porta at, maximus a diam.
-        Sed mauris magna, congue non nisi ac, maximus dignissim massa. Duis gravida bibendum tempor. Sed auctor rutrum
-        tellus nec tempus. Cras quis rutrum odio. Praesent quis tellus efficitur, molestie arcu vel, elementum quam.
-        Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce maximus risus a lacus convallis vestibulum.
-        Vivamus quis condimentum sapien.
+      <div class="col-6 mt-5">
+        <h2 class="text_1">„ A tudatlanság vírus. Amikor terjedni kezd, csak az értelemmel gyógyítható. Az emberiség érdekében nekünk kell ennek a gyógyszernek lennünk. ”
+          <br>-Neil deGrasse Tyson </h2>
       </div>
-      <div class="col-6 picture-wborder-left">
-        <img src="img/hjelp.jpg" alt="" class="img-fluid float-left">
+      <div class="col-6 picture-wborder-right">
+        <img src="img/szila.jpg" alt="" class="img-fluid float-left" id="szila">
       </div>
 
     </div>

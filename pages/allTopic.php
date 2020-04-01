@@ -63,7 +63,7 @@ include "../php/db/execute.php";
                 Profilom
               </button>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Profilom megtekintése</a>
+                <a class="dropdown-item" href="profile.php">Profilom megtekintése</a>
                 <a class="dropdown-item" href="../php/logout/logout.php">Kijelentkezés</a>
               </div>
             </div>

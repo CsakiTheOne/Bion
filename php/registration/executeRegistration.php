@@ -8,10 +8,10 @@ function alert($msg) {
 
 function register()
 {
-$email = $_POST['regemail'];
-$username = $_POST['felhnev'];
-$password = $_POST['regpw'];
-$password2 = $_POST['regpw2'];
+$email = trim($_POST['regemail']);
+$username = trim($_POST['felhnev']);
+$password = trim($_POST['regpw']);
+$password2 = trim($_POST['regpw2']);
 
 if(!$email == "" || !$username == "" || !$password == "" || !$password2 == "")
 {
@@ -44,7 +44,9 @@ if(!$email == "" || !$username == "" || !$password == "" || !$password2 == "")
         {
             $_SESSION['id'] = $uniq;
             $_SESSION['username'] = $username;
+            $_SESSION['email'] = $email;
             alert("Sikeres regisztráció!");
+            echo "<script> window.location.assign('../index.php'); </script>";
         }
         else
         {
