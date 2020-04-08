@@ -122,12 +122,12 @@ session_start();
           <br>-Neil deGrasse Tyson </h2>
       </div>
       <div class="col-6 picture-wborder-right">
-        <img src="img/szila.jpg" alt="" class="img-fluid float-left" id="szila">
+        <img src="img/gyula.jpg" alt="" class="img-fluid float-left" id="szila">
       </div>
 
     </div>
   </div>
-
+  <br>
   <?php include "php/footer/footerComponent.php"; ?>
 
   <?php

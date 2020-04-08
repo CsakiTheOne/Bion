@@ -1,0 +1,62 @@
+
+.jumbotron
+{
+  margin-top: 100px;
+  
+  background: none;
+
+
+}
+#aboutLeadContainer
+{
+  padding-top: 60px;
+  padding-bottom: 60px;
+  background: rgb(24, 147, 199) !important;
+  border-radius: 2%;
+}
+#aboutJoinContainer
+{
+    padding-top: 60px;
+  padding-bottom: 60px;
+  background: rgb(24, 147, 199) !important;
+  border-radius: 2%;
+}
+#aboutHistoryContainer
+{
+    background: rgb(0, 29, 41) !important;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    border-radius: 2%;
+    
+  
+}
+.navbar-default
+{
+    background: #00374E !important;
+}
+
+.footer-copyright
+{
+  background: #00374E !important;
+}
+
+
+
+body{
+    min-height: 100vh;
+    background-image: url("../img/bg.svg");
+    background-attachment: fixed;
+    background-size: cover;
+    color:white;
+}
+
+label{
+    font-family: 'Comfortaa', cursive;
+    font-size: 30px;
+}
+
+  #menuLogo
+{
+    height: 40px;
+    width: 40px;
+}

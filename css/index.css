@@ -1,0 +1,47 @@
+.navbar-default
+{
+    background: #00374E !important;
+}
+
+.footer-copyright
+{
+  background: #00374E !important;
+}
+
+footer {
+  bottom: 0;
+  width: 100%;
+  background: #00374E !important;
+}
+
+.jumbotron
+{
+  background: rgb(0, 137, 196) !important;
+}
+h1{
+    font-family: 'Lobster', cursive;
+    font-size: 60px;
+}
+.card
+{
+  background: rgb(18, 79, 105) !important;
+}
+
+body{
+    min-height: 100vh;
+    background-image: url("../img/bg.svg");
+    background-attachment: fixed;
+    background-size: cover;
+    color:white;
+}
+
+label{
+    font-family: 'Comfortaa', cursive;
+    font-size: 30px;
+}
+
+  #menuLogo
+{
+    height: 40px;
+    width: 40px;
+}
