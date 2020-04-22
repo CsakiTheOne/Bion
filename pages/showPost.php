@@ -83,14 +83,24 @@ include "../php/db/execute.php";
   <?php
   $data = callProc("ThemeGetByIdWithCategoryAndCreator", "'{$_SESSION["postId"]}'");
   ?>
+  <?php include("../php/topic/topicEditComponent.php"); ?>
   <div class="w-50 mx-auto">
     <h1><?php echo $data[0]['header'] ?></h1>
     <p class="lead"><i class="fa fa-user"></i> szerző <?php echo $data[0]['username'] ?></p>
     <hr>
-    <p><i class="fa fa-calendar"></i> <?php echo $data[0]['date'] ?> </p>
+    <p><i class="fa fa-calendar"></i> <?php echo $data[0]['date'] ?> </p> 
     <p><i class="fa fa-tags"></i> Tags: <span class="badge badge-info"><?php echo $data[0]['name'] ?></span></p>
     <textarea class="form-control textarea" id="postText" name="postText" rows="6" readonly><?php echo $data[0]['text']; ?></textarea>
+    <?php if($data[0]['username'] == $_SESSION['username']) { ?>
+      <button type="button" class="btn btn-primary my-2" data-toggle="modal" data-target="#editModal"><i class="fa fa-edit"></i> Szerkeztés</button>
+    <?php } ?>
+      <?php if($data[0]['username'] == $_SESSION['username'] or $_SESSION['admin'] == 1) { ?>
+      <form role="form" method="POST" class="d-inline-block my-2">
+        <button type="submit" name="deletePost" id="postDelete" class="btn btn-primary"><i class="fa fa-trash"></i> Törlés</button>
+      </form>
+    <?php } ?>
   </div>
+
   <form id="postComment" method="POST">
     <input type="hidden" name="postId" value="{<?php $_SESSION["postId"] ?>}">
     <div class="well w-50 mx-auto">
@@ -115,6 +125,9 @@ include "../php/db/execute.php";
 
   ?>
 
+ 
+
+
   <?php
   if (isset($_POST['comment'])) {
     $date = date("Y-m-d H:i:s");
@@ -134,6 +147,17 @@ include "../php/db/execute.php";
   if (isset($_POST['update'])) {
     echo "<meta http-equiv='refresh' content='0'>";
   }
+
+  if (isset($_POST['deletePost'])) {
+    $data = callProcDelete("CommentDeleteByThemeId", "'{$_SESSION["postId"]}'");
+    $data = callProcDelete("ThemeDeleteById", "'{$_SESSION["postId"]}'");
+    echo "<script> window.location.assign('allTopic.php'); </script>";
+  }
+
+  if (isset($_POST['deleteComment'])) {
+    $data = callProcDelete("CommentDeleteById", "'{$_POST["commentId"]}'");
+    echo "<meta http-equiv='refresh' content='0'>";
+  }
   ?>
 
   <script>
@@ -149,11 +173,10 @@ include "../php/db/execute.php";
       }
       else
       {
-        document.getElementById('commentSend').disabled=true;
+        document.getElementById('commentSend').disabled = true;
       }
     }
     document.getElementById('comment').addEventListener("input",button);
-
   </script>
 
   <?php include "../php/footer/footerComponent.php"; ?>

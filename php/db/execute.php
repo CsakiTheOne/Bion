@@ -1,12 +1,5 @@
 <?php
 
-function execute($sql)
-{
-    global $db;
-    $result = $db->query($sql) or die($db->error);
-    return $result;
-}
-
 function callProc($procName, $params)
 {
     global $db;
@@ -23,6 +16,12 @@ function callProc($procName, $params)
             $db->next_result();
         }
     return $result;
+}
+
+function callProcDelete($procName, $params)
+{
+    global $db;
+    return $db->query("CALL {$procName}({$params})") or die($db->error);
 }
 
 ?>

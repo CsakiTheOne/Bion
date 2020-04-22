@@ -15,6 +15,7 @@ include "php/db/execute.php";
             $_SESSION['id'] = $data[0]['uniqId'];
             $_SESSION['username'] = $data[0]['username'];
             $_SESSION['email'] = $email;
+            $_SESSION['admin'] = $data[0]['admin'];
             alert("Sikeres bejelentkezés");
         }
     }

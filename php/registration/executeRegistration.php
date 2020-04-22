@@ -45,7 +45,7 @@ if(!$email == "" || !$username == "" || !$password == "" || !$password2 == "")
             $_SESSION['id'] = $uniq;
             $_SESSION['username'] = $username;
             $_SESSION['email'] = $email;
-            alert("Sikeres regisztráció!");
+            $_SESSION['admin'] = 0;
             echo "<script> window.location.assign('../index.php'); </script>";
         }
         else
